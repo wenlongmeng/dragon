@@ -1,7 +1,6 @@
 package dragon.commons.util;
 
 import org.apache.commons.configuration.Configuration;
-import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.commons.configuration.reloading.FileChangedReloadingStrategy;
 import org.slf4j.Logger;

@@ -12,6 +12,12 @@
 
     <artifactId>framework</artifactId>
 
+    <!-- Begin:add by Wenlong Meng at 2016-01-10 20:42 for properties -->
+    <properties>
+
+    </properties>
+    <!-- End:add by Wenlong Meng at 2016-01-10 20:42 for properties -->
+
     <dependencies>
 
         <!-- Begin:add by Wenlong Meng at 2016-01-10 13:34 for dragon -->
@@ -40,6 +46,31 @@
         <!-- End:add by Wenlong Meng at 2016-01-10 13:35 for spring -->
 
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${profiles.dir}/dev</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${profiles.dir}/prod</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+    </profiles>
 
 
 </project>

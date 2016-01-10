@@ -24,4 +24,37 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>www.dragon</finalName>
+
+        <plugins>
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${profiles.dir}/dev</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>${profiles.dir}/prod</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+
+    </profiles>
+
 </project>

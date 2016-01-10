@@ -12,6 +12,12 @@
 
     <artifactId>commons</artifactId>
 
+    <!-- Begin:add by Wenlong Meng at 2016-01-10 20:42 for properties -->
+    <properties>
+
+    </properties>
+    <!-- End:add by Wenlong Meng at 2016-01-10 20:42 for properties -->
+
     <dependencies>
 
         <!-- Begin:add by Wenlong Meng at 2016-01-10 12:33 for config -->

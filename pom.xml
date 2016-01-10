@@ -8,4 +8,111 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <properties>
+        <dragon.nexus.releases>http://nexus.dragon:8081/nexus/content/repositories/releases</dragon.nexus.releases>
+        <dragon.nexus.snapshots>http://nexus.dragon:8081/nexus/content/repositories/snapshots</dragon.nexus.snapshots>
+
+        <org.codehaus.mojo.version>1.0-beta-3</org.codehaus.mojo.version>
+        <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+        <maven-war-plugin.version>2.5</maven-war-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven.deploy.skip>false</maven.deploy.skip>
+        <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+        <java.version>1.6</java.version>
+        <encoding>UTF-8</encoding>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-enforcer-plugin.version>1.3.1</maven-enforcer-plugin.version>
+
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <name>Dragon Nexus Releases</name>
+            <url>${dragon.nexus.releases}</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>snapshots</id>
+            <name>Dragon Nexus Snapshots</name>
+            <url>${dragon.nexus.snapshots}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${maven-install-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                    <configuration>
+                        <skip>${maven.deploy.skip}</skip>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${encoding}</encoding>
+                        <compilerArgs>
+                            <arg>-J-Duser.country=US</arg>
+                            <arg>-version</arg>
+                        </compilerArgs>
+                        <debug>true</debug>
+                        <fork>true</fork>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar-no-fork</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <attach>true</attach>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>extra-enforcer-rules</artifactId>
+                            <version>${org.codehaus.mojo.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
+
 </project>
