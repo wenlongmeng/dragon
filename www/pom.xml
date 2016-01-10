@@ -12,29 +12,16 @@
 
     <artifactId>www</artifactId>
 
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>${profiles.dir}/dev</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
+    <dependencies>
+        <dependency>
+            <groupId>dragon</groupId>
+            <artifactId>commons</artifactId>
+        </dependency>
 
-        <profile>
-            <id>prod</id>
-            <build>
-                <resources>
-                    <resource>
-                        <directory>${profiles.dir}/prod</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-    </profiles>
+        <dependency>
+            <groupId>dragon</groupId>
+            <artifactId>framework</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

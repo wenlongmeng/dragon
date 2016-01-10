@@ -12,5 +12,44 @@
 
     <artifactId>commons</artifactId>
 
+    <dependencies>
+
+        <!-- Begin:add by Wenlong Meng at 2016-01-10 12:33 for config -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+        </dependency>
+        <!-- End:add by Wenlong Meng at 2016-01-10 12:33 for config -->
+
+        <!-- Begin:add by Wenlong Meng at 2016-01-10 12:33 for log -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <!-- End:add by Wenlong Meng at 2016-01-10 12:33 for log -->
+
+    </dependencies>
 
 </project>
