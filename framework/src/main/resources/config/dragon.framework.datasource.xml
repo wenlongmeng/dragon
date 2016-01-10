@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+    <bean id="appContextDataSource" class="dragon.framework.datasource.AppContextDataSource">
+    </bean>
+
+    <!-- session factory -->
+    <bean id="dragonSqlSessionFactory" name="dragonSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:config/dragon.framework.mybatis-config.xml"/>
+        <property name="dataSource" ref="appContextDataSource"/>
+        <!--<property name="mapperLocations" value="classpath*:dragon/domain/**.xml"></property>-->
+    </bean>
+
+    <!-- mapper scanner configurer -->
+    <bean id="defaultNameGenerator" class="dragon.framework.beans.FullBeanNameGenerator"></bean>
+    <bean id="dragonMapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="**.dao" />
+        <property name="annotationClass" value="dragon.framework.datasource.DataSource"/>
+        <property name="sqlSessionFactoryBeanName" value="dragonSqlSessionFactory"/>
+        <property name="nameGenerator" ref="defaultNameGenerator" />
+    </bean>
+
+</beans>

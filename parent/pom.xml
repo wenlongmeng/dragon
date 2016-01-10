@@ -26,13 +26,14 @@
         <org.mybatis.version>3.2.6</org.mybatis.version>
         <org.mybatis.mybatis-spring.version>1.2.3</org.mybatis.mybatis-spring.version>
         <junit.version>4.12</junit.version>
-        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.servlet.version>3.0.1</javax.servlet.version>
         <ch.qos.logback.version>1.1.1</ch.qos.logback.version>
         <org.slf4j.version>1.7.5</org.slf4j.version>
         <org.apache.commons.version>3.3.2</org.apache.commons.version>
         <commons-lang.version>2.6</commons-lang.version>
         <com.google.guava.version>18.0</com.google.guava.version>
         <commons-configuration.versoin>1.9</commons-configuration.versoin>
+        <mysql.versoin>5.1.29</mysql.versoin>
     </properties>
     <!-- End:add by Wenlong Meng at 2016-01-10 20:42 for properties -->
 
@@ -114,6 +115,13 @@
                 <scope>provided</scope>
             </dependency>
 
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>2.</version>
+                <scope>provided</scope>
+            </dependency>
+
             <!-- Begin:add by Wenlong Meng at 2016-01-10 13:26 for test -->
             <dependency>
                 <groupId>junit</groupId>
@@ -176,6 +184,12 @@
                 <version>${org.springframework.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
             <!-- End:add by Wenlong Meng at 2016-01-10 13:24 for spring -->
 
             <!-- Begin:add by Wenlong Meng at 2016-01-10 13:41 for mybatis -->
@@ -186,14 +200,19 @@
             </dependency>
             <!-- End:add by Wenlong Meng at 2016-01-10 13:41 for mybatis -->
 
+            <!-- Begin:add by Wenlong Meng at 2016-01-11 01:52 for mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.versoin}</version>
+            </dependency>
+            <!-- End:add by Wenlong Meng at 2016-01-11 01:52 for mysql -->
+
         </dependencies>
     </dependencyManagement>
 
     <build>
         <resources>
-            <resource>
-                <directory>src/main/resources.${deploy.type}</directory>
-            </resource>
             <resource>
                 <directory>src/main/resources</directory>
             </resource>
@@ -235,12 +254,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*.properties</exclude>
-                        <exclude>**/*.xml</exclude>
-                    </excludes>
-                </configuration>
+                <!--<configuration>-->
+                    <!--<excludes>-->
+                        <!--<exclude>**/*.properties</exclude>-->
+                        <!--<exclude>**/*.xml</exclude>-->
+                    <!--</excludes>-->
+                <!--</configuration>-->
             </plugin>
 
             <plugin>
