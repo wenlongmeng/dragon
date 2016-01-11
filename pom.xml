@@ -11,7 +11,7 @@
     <properties>
         <dragon.nexus.releases>http://nexus.dragon:8081/nexus/content/repositories/releases</dragon.nexus.releases>
         <dragon.nexus.snapshots>http://nexus.dragon:8081/nexus/content/repositories/snapshots</dragon.nexus.snapshots>
-
+        <maven.test.skip>true</maven.test.skip>
         <org.codehaus.mojo.version>1.0-beta-3</org.codehaus.mojo.version>
         <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
         <maven-war-plugin.version>2.5</maven-war-plugin.version>
